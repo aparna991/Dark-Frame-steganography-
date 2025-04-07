@@ -1,0 +1,96 @@
+{% extends 'text.html' %}
+{% block title %} STEGA | Text-Encode {% endblock %}
+{% block content %}
+<style>
+    body {
+        background-color: #0d0d0d;
+        color: #00ffcc;
+        font-family: 'Courier New', monospace;
+    }
+
+    h1, h5 {
+        color: #00ffcc;
+        text-shadow: 0 0 8px #00ffcc, 0 0 15px rgba(0, 255, 204, 0.6);
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid #00ffcc;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+        color: #e0e0e0;
+    }
+
+    .card-body {
+        background: rgba(0, 255, 204, 0.05);
+        border-radius: 10px;
+        color: #ffffff;
+    }
+
+    .btn-primary, .btn-dark {
+        background: transparent;
+        color: #00ffcc;
+        border: 2px solid #00ffcc;
+        font-weight: bold;
+        transition: 0.3s ease-in-out;
+    }
+
+    .btn-primary:hover, .btn-dark:hover {
+        background: #00ffcc;
+        color: #000;
+        box-shadow: 0 0 10px #00ffcc, 0 0 20px rgba(0, 255, 204, 0.6);
+        transform: scale(1.05);
+    }
+
+    p {
+        color: #cccccc;
+    }
+</style>
+
+<div class="container mx-5 my-5">
+    <h1>Encode Result</h1>
+    <div class="card">
+        <div class="container-fluid">
+
+            {% if file %}
+                <h5 class="my-2">Your Image:</h5>
+                <img src="static/{{ file.filename }}" class="mb-2" style="width:100px; height:100px" />
+            {% else %}
+                <p>No image selected</p><br>
+            {% endif %}
+
+            <hr>
+
+            {% if message %}
+                <h5 class="my-2">Your Message:</h5>
+                <div class="card mb-2">
+                    <div class="card-body">
+                        {{ message }}
+                    </div>
+                </div>
+            {% else %}
+                <p>No message recorded.</p>
+            {% endif %}
+
+            <hr>
+
+            {% if text_encryption %}
+                <h5 class="my-2">Encrypted Image:</h5>
+                <div class="text-center mb-2">
+                    <a class="btn btn-dark btn-sm" href="static/encrypted_text_image.png" download>Download</a>
+                </div>
+            {% else %}
+                <p>No encrypted output.</p><br>
+            {% endif %}
+
+            <hr>
+
+            <div>
+                <a class="btn btn-primary my-2" href="/text/decode">Done</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

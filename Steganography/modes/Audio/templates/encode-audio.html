@@ -1,0 +1,71 @@
+{% extends 'audio.html' %}
+{% block title %} STEGA | Audio-Encode {% endblock %}
+{% block content %}
+    <style>
+        .encode-container {
+            background: rgba(0, 255, 255, 0.09);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
+            color: #e0e0e0;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 960px;
+            width: 100%;
+        }
+
+        .form-control,
+        .form-control-file {
+            background-color: #1e1e1e;
+            border: 1px solid #444;
+            color: #fff;
+        }
+
+        .form-control::placeholder {
+            color: #aaa;
+        }
+
+        label {
+            color: #00ffc8;
+            font-weight: 500;
+        }
+
+        h1 {
+            color: #00ffc8;
+        }
+
+        .btn-primary {
+            background-color: #00ffcc;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #00cc99;
+        }
+
+        @media (max-width: 768px) {
+            .encode-container {
+                padding: 1rem;
+                margin: 1rem;
+            }
+        }
+    </style>
+
+    <div class="encode-container">
+        <div class="container">
+            <h1 class="display-4 text-monospace">Encode</h1>
+            <hr>
+            <!--Form start-->
+            <form action="/audio/encode-result" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">📃 Write your secret message:</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="message" required></textarea>
+                    <br>
+                    <label for="exampleFormControlFile1">🎵 Choose your secret audio file:</label>
+                    <input type="file" name="audio" accept="audio/*" class="form-control-file" id="exampleFormControlFile1" required>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            </form>
+            <!--Form end-->
+        </div>
+    </div>
+{% endblock %}

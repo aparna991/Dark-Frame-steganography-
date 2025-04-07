@@ -1,0 +1,64 @@
+/* Dark Background */
+body {
+    background: radial-gradient(circle, #000000, #0f0f0f);
+    font-family: "Courier New", monospace;
+    color: #00ffcc;
+}
+
+/* Header Section */
+.header-container {
+    background: rgba(0, 255, 204, 0.1); /* Slight transparency */
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+}
+
+/* Header Text */
+.header-title {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px rgba(0, 255, 204, 0.8);
+}
+
+/* Subtext */
+.header-subtext {
+    font-size: 1rem;
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+}
+
+/* Card Styling */
+.card {
+    background: rgba(255, 255, 255, 0.05); /* Semi-transparent */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.7);
+}
+
+/* Button Styles */
+.btn-custom {
+    background: transparent;
+    color: #00ffcc;
+    border: 2px solid #00ffcc;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.btn-custom:hover {
+    background: #00ffcc;
+    color: #000;
+    box-shadow: 0 0 15px #00ffcc, 0 0 30px rgba(0, 255, 204, 0.5);
+    transform: scale(1.1);
+}

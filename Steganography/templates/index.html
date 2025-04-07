@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="DarkFrame - A sleek dark-themed UI experience"/>
+  <title>DarkFrame</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+
+  <style>
+    /* 🌑 Dark Theme Base */
+    body {
+        background:  #0d0d0d;
+        font-family: "Courier New", monospace;
+        color: #00ffcc;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Center content */
+    .center-box {
+        text-align: center;
+        padding: 40px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 0 30px rgba(0, 255, 204, 0.1);
+    }
+
+    .center-box h1 {
+        font-size: 3rem;
+        color: #00ffcc;
+        text-shadow: 0 0 10px #00ffcc, 0 0 20px rgba(0, 255, 204, 0.8);
+        margin: 20px 0;
+    }
+
+    .title-img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        margin-bottom: 10px;
+        border-radius: 50%;
+        border: 2px solid #00ffcc;
+        box-shadow: 0 0 15px #00ffcc;
+    }
+
+    .btn-custom {
+        background: transparent;
+        color: #00ffcc;
+        border: 2px solid #00ffcc;
+        padding: 12px 30px;
+        margin: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .btn-custom:hover {
+        background: #00ffcc;
+        color: #000;
+        box-shadow: 0 0 15px #00ffcc, 0 0 30px rgba(0, 255, 204, 0.5);
+        transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+{% block content %}
+  <div class="center-box">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="DarkFrame Logo" class="title-img">
+    <h1>DarkFrame</h1>
+    <div>
+      <a href="{{ url_for('login') }}" class="btn btn-custom">Login</a>
+      <a href="{{ url_for('register') }}" class="btn btn-custom">Register</a>
+    </div>
+  </div>
+
+  {% endblock %}
+
+</body>
+</html>

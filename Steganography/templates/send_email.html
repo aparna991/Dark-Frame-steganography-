@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Email</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #000;
+            color: #00ffcc;
+        }
+
+        .navbar {
+            background-color: #000 !important;
+            border-bottom: 2px solid #00ffcc;
+            padding: 10px 20px;
+        }
+
+        .navbar-brand b {
+            color: #00ffcc;
+            text-shadow: 0 0 8px #00ffcc;
+            font-size: 1.8rem;
+        }
+
+        .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            margin-right: 10px;
+            border-radius: 50%;
+            border: 2px solid #00ffcc;
+        }
+
+        .email-container {
+            margin-top: 50px;
+            padding: 20px;
+            background: #121212;
+            border: 2px solid #00ffcc;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px #00ffcc;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .text-glow {
+            color: #00ffcc;
+            text-shadow: 0px 0px 8px #00ffcc;
+        }
+
+        .input-dark {
+            background-color: #000;
+            color: #00ffcc;
+            border: 1px solid #00ffcc;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .input-dark::placeholder {
+            color: #00ffcc;
+            opacity: 0.7;
+        }
+
+        .btn-custom {
+            background-color: #000;
+            color: #00ffcc;
+            border: 1px solid #00ffcc;
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #00ffcc;
+            color: #000;
+        }
+
+        .btn-logout {
+            border: 1px solid #00ffcc;
+            color: #00ffcc;
+            transition: 0.3s;
+        }
+
+        .btn-logout:hover {
+            background-color: #00ffcc;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+    <a class="navbar-brand ml-5" href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="DarkFrame Logo">
+        <b class="text-monospace">DarkFrame</b>
+    </a>
+    <div class="ml-auto d-flex align-items-center mr-5">
+        <a href="{{ url_for('logout') }}" class="btn btn-custom btn-logout">Logout</a>
+    </div>
+</nav>
+
+<!-- Email Form Container -->
+<div class="container email-container">
+    <h2 class="text-center text-glow">Send Email</h2>
+    <form onsubmit="sendMail(event)">
+        <div class="form-group">
+            <label for="from_email">Your Email</label>
+            <input type="email" id="from_email" class="form-control input-dark" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+            <label for="to_email">Recipient Email</label>
+            <input type="email" id="to_email" class="form-control input-dark" placeholder="Enter recipient's email" required>
+        </div>
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" class="form-control input-dark" value="Secret File Enclosed" required>
+        </div>
+        <div class="form-group">
+            <label for="body">Message</label>
+            <textarea id="body" class="form-control input-dark" rows="5" placeholder="Write your message here..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-custom btn-block">Open Email Client</button>
+    </form>
+</div>
+
+<!-- Scripts -->
+<script>
+    function sendMail(event) {
+        event.preventDefault();
+
+        const to = document.getElementById("to_email").value;
+        const subject = encodeURIComponent(document.getElementById("subject").value);
+        const body = encodeURIComponent(document.getElementById("body").value);
+
+        const mailtoLink = `mailto:${to}?subject=${subject}&body=${body}`;
+
+        window.location.href = mailtoLink;
+    }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
