@@ -7,88 +7,101 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    body {
+        background-color: #f5f5dc;
+        color: #000;
+        font-family: "Arial", "Helvetica", sans-serif;
+    }
 
-    <style>
-        body {
-            background-color: #000;
-            color: #00ffcc;
-        }
+    .navbar {
+        background-color: #1a1a1a !important;
+        border-bottom: 2px solid #00bcd4;
+        padding: 15px 20px;
+    }
 
-        .navbar {
-            background-color: #000 !important;
-            border-bottom: 2px solid #00ffcc;
-            padding: 10px 20px;
-        }
+    .navbar-brand b {
+        color: #00bcd4;
+        text-shadow: 0 0 8px #00bcd4;
+        font-size: 1.8rem;
+    }
 
-        .navbar-brand b {
-            color: #00ffcc;
-            text-shadow: 0 0 8px #00ffcc;
-            font-size: 1.8rem;
-        }
+    .navbar-brand img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        margin-right: 10px;
+        border-radius: 50%;
+        border: 2px solid #00bcd4;
+    }
 
-        .navbar-brand img {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-            margin-right: 10px;
-            border-radius: 50%;
-            border: 2px solid #00ffcc;
-        }
+    .email-container {
+        margin-top: 50px;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.3);
+        border: 2px solid #00bcd4;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-        .email-container {
-            margin-top: 50px;
-            padding: 20px;
-            background: #121212;
-            border: 2px solid #00ffcc;
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px #00ffcc;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .text-glow {
+        color: #00bcd4;
+        font-weight: bold;
+        text-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+    }
 
-        .text-glow {
-            color: #00ffcc;
-            text-shadow: 0px 0px 8px #00ffcc;
-        }
+    .input-dark {
+        background-color: #f5f5dc;
+        color: #000;
+        border: 2px solid #00bcd4;
+        padding: 12px;
+        border-radius: 8px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
 
-        .input-dark {
-            background-color: #000;
-            color: #00ffcc;
-            border: 1px solid #00ffcc;
-            padding: 10px;
-            border-radius: 5px;
-            width: 100%;
-        }
+    .input-dark::placeholder {
+        color: #333;
+        opacity: 0.6;
+    }
 
-        .input-dark::placeholder {
-            color: #00ffcc;
-            opacity: 0.7;
-        }
+    .btn-custom {
+        background: transparent;
+        color: #00bcd4;
+        border: 2px solid #00bcd4;
+        padding: 10px 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: 0.3s ease-in-out;
+    }
 
-        .btn-custom {
-            background-color: #000;
-            color: #00ffcc;
-            border: 1px solid #00ffcc;
-            transition: 0.3s;
-        }
+    .btn-custom:hover {
+        background-color: #00bcd4;
+        color: #000;
+        box-shadow: 0 0 15px #00bcd4, 0 0 30px rgba(0, 188, 212, 0.4);
+        transform: scale(1.05);
+    }
 
-        .btn-custom:hover {
-            background-color: #00ffcc;
-            color: #000;
-        }
+    .btn-logout {
+        border: 2px solid #00ffcc;
+        color: #00ffcc;
+        background: transparent;
+        padding: 10px 20px;
+        font-weight: bold;
+        transition: 0.3s ease-in-out;
+    }
 
-        .btn-logout {
-            border: 1px solid #00ffcc;
-            color: #00ffcc;
-            transition: 0.3s;
-        }
-
-        .btn-logout:hover {
-            background-color: #00ffcc;
-            color: #000;
-        }
-    </style>
+    .btn-logout:hover {
+        background-color: #00ffcc;
+        color: #000;
+        box-shadow: 0 0 15px #00ffcc, 0 0 25px rgba(0, 255, 204, 0.3);
+        transform: scale(1.05);
+    }
+</style>
+>
 </head>
 <body>
 
@@ -96,7 +109,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
     <a class="navbar-brand ml-5" href="{{ url_for('index') }}">
         <img src="{{ url_for('static', filename='logo.png') }}" alt="DarkFrame Logo">
-        <b class="text-monospace">DarkFrame</b>
+        <b class="text-monospace">SecureWave</b>
     </a>
     <div class="ml-auto d-flex align-items-center mr-5">
         <a href="{{ url_for('logout') }}" class="btn btn-custom btn-logout">Logout</a>

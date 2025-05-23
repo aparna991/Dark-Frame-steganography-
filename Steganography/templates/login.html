@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - DarkFrame</title>
+  <title>Login - SecureWave</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
   <style>
     /* 🌑 General Page Styling */
     body {
-        background: #0d0d0d;
-        font-family: "Courier New", monospace;
-        color: #00ffcc;
-        padding-top: 70px; /* Prevent overlap with navbar */
+       background-color: #f5f5dc; /* Beige */
+       color: #000000; /* Black */
+       font-family: "Arial", "Helvetica", sans-serif;
+       padding-top: 70px; /* Prevent overlap with navbar */
     }
 
     /* 🔹 Navbar */
     .custom-navbar {
         width: 100%;
-        background: #1a1a1a;
+        background: #1a1a1a; /* Dark black */
         padding: 8px 20px; /* Reduced padding for a slimmer navbar */
-        border-bottom: 2px solid #00ffcc;
+        border-bottom: 2px solid #0066cc; /* Blue color for navbar border */
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -42,21 +42,21 @@
         height: 35px;
         object-fit: contain;
         border-radius: 50%;
-        border: 2px solid #00ffcc;
+        border: 2px solid #0066cc; /* Blue border for logo */
         margin-right: 8px;
     }
 
     .navbar-brand b {
-        color: #00ffcc;
-        text-shadow: 0 0 8px #00ffcc;
+        color: #0066cc; /* Blue text */
+        text-shadow: 0 0 8px #0066cc;
         font-size: 1.8rem;
     }
 
     /* 🎛️ Buttons (Dynamic Size) */
     .btn-custom {
         background: transparent;
-        color: #00ffcc;
-        border: 2px solid #00ffcc;
+        color: #0066cc; /* Blue text */
+        border: 2px solid #0066cc; /* Blue border */
         padding: 6px 12px; /* Reduced padding */
         font-size: 1rem;
         transition: all 0.3s ease-in-out;
@@ -66,9 +66,9 @@
     }
 
     .btn-custom:hover {
-        background: #00ffcc;
-        color: #000;
-        box-shadow: 0 0 15px #00ffcc, 0 0 30px rgba(0, 255, 204, 0.5);
+        background: #0066cc; /* Blue background on hover */
+        color: #000; /* Black text on hover */
+        box-shadow: 0 0 15px #0066cc, 0 0 30px rgba(0, 102, 204, 0.5);
         transform: scale(1.05);
     }
 
@@ -84,37 +84,37 @@
     .form-container {
         max-width: 400px;
         margin: 80px auto;
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.05); /* Slight white background */
         padding: 30px;
         border-radius: 15px;
-        box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+        box-shadow: 0 0 20px rgba(0, 102, 204, 0.2); /* Blue shadow */
         text-align: center;
     }
 
     .form-container h2 {
-        color: #00ffcc;
-        text-shadow: 0 0 10px #00ffcc;
+        color: #0066cc; /* Blue text */
+        text-shadow: 0 0 10px #0066cc;
     }
 
     .form-group label {
-        color: #ffffff;
+        color: #000000; /* Black text */
     }
 
     .form-control {
-        background: #1a1a1a;
-        border: 1px solid #00ffcc;
-        color: #00ffcc;
+        background: #1a1a1a; /* Dark background for form input */
+        border: 1px solid #0066cc; /* Blue border for form input */
+        color: #ffffff; /* White text inside input */
     }
 
     .form-control:focus {
-        background: #1a1a1a;
-        color: #00ffcc;
-        box-shadow: 0 0 5px #00ffcc;
-        border-color: #00ffcc;
+        background: #1a1a1a; /* Dark background when focused */
+        color: #ffffff; /* White text inside input */
+        box-shadow: 0 0 5px #0066cc; /* Blue focus shadow */
+        border-color: #0066cc; /* Blue border when focused */
     }
 
     a.text-info {
-        color: #00ffcc !important;
+        color: #0066cc !important; /* Blue text for links */
         text-decoration: underline;
     }
 
@@ -126,7 +126,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
     <a class="navbar-brand ml-5" href="#">
         <img src="{{ url_for('static', filename='logo.png') }}" class="rounded-circle">
-        <b class="text-monospace">DARKFRAME</b>
+        <b class="text-monospace">SecureWave</b>
     </a>
     <div class="ml-auto d-flex align-items-center mr-5">
         <a href="{{ url_for('login') }}" class="btn btn-custom">LOGIN</a>

@@ -1,134 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}{% endblock %}</title>
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+    crossorigin="anonymous"
+  />
 
-    <style>
-        /* 🌑 Dark Background */
-        body {
-            background: #0d0d0d;
-            font-family: "Courier New", monospace;
-            color: #00ffcc;
-        }
+  <style>
+    /* 🌑 Dark Background */
+    body {
+      background-color: #f5f5dc; /* Beige */
+      color: #000000;
+      font-family: "Arial", "Helvetica", sans-serif;
+    }
 
-        /* 🔹 Navbar */
-        .custom-navbar {
-            background: #1a1a1a;
-            padding: 15px;
-            border-bottom: 2px solid #00ffcc;
-        }
+    /* 🖋️ Universal Text Style: Black text with blue glow */
+    h1, h2, h3, h4, h5, h6, p, span, label, a, li, td, th, div, strong, em {
+      color: #000 !important;
+      text-shadow: 0 0 2px #00bcd4;
+    }
 
-        .custom-navbar .navbar-brand b {
-            color: #00ffcc;
-            text-shadow: 0 0 8px #00ffcc;
-        }
+    h1, h2, h3 {
+      text-shadow: 0 0 3px #00bcd4, 0 0 5px rgba(0, 188, 212, 0.5);
+    }
 
-        .btn-custom {
-            background: transparent;
-            color: #00ffcc;
-            border: 2px solid #00ffcc;
-            padding: 10px 20px;
-            margin-left: 10px;
-            transition: all 0.3s ease-in-out;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
+    /* 🔹 Navbar */
+    .custom-navbar {
+      background: #1a1a1a;
+      padding: 15px;
+      border-bottom: 2px solid #00bcd4;
+    }
 
-        .btn-custom:hover {
-            background: #00ffcc;
-            color: #000;
-            box-shadow: 0 0 15px #00ffcc, 0 0 30px rgba(0, 255, 204, 0.5);
-            transform: scale(1.1);
-        }
+    .custom-navbar .navbar-brand b {
+      color: #00bcd4;
+      text-shadow: 0 0 8px #00bcd4;
+    }
 
-        /* 🔹 Jumbotron */
-        .jumbotron {
-            background: rgba(0, 255, 204, 0.1);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
-            text-align: center;
-        }
+    .btn-custom {
+  background: transparent;
+  color: #00bcd4 !important;  /* 🔵 Force blue text */
+  border: 2px solid #00bcd4;
+  padding: 10px 20px;
+  margin-left: 10px;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
-        .text-glow {
-            font-size: 2rem;
-            color: #00ffcc;
-            text-shadow: 0 0 10px #00ffcc, 0 0 20px rgba(0, 255, 204, 0.8);
-        }
 
-        .lead {
-            color: #ffffff;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
-        }
+    .btn-custom:hover {
+      background: #00bcd4;
+      color: #000000;
+      box-shadow: 0 0 15px #00bcd4, 0 0 30px rgba(0, 188, 212, 0.5);
+      transform: scale(1.1);
+    }
 
-        /* 🖼️ Cards */
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
-            transition: transform 0.2s ease-in-out;
-            margin: 10px;
-            color: black;
-        }
+    /* 🔹 Jumbotron */
+    .jumbotron {
+      background: rgba(47, 24, 119, 0.08);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(47, 24, 119, 0.2);
+      text-align: center;
+    }
 
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
-        }
+    .text-glow {
+      font-size: 2rem;
+      color: #000000;
+      text-shadow: none;
+    }
 
-        .card-title {
-            font-size: 1.2rem;
-            color: #00ffcc;
-            font-weight: bold;
-        }
+    .lead {
+      color: #000000;
+      text-shadow: none;
+    }
 
-        .card-icon {
-            width: 80px;
-            margin-bottom: 10px;
-        }
+    /* 🖼️ Cards */
+    .card {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(47, 24, 119, 0.2);
+      transition: transform 0.2s ease-in-out;
+      margin: 10px;
+    }
 
-        .btn-group .btn-custom {
-            font-size: 0.9rem;
-            padding: 8px 15px;
-        }
-        .navbar-brand img {
-            width: 40px; /* Fixed width */
-            height: 40px; /* Fixed height */
-            object-fit: contain; /* Ensure aspect ratio */
-            margin-right: 10px;
-            border-radius: 50%; /* Circular shape */
-            border: 2px solid #00ffcc; /* Neon border effect */
-        }
-        .navbar-brand b {
-            color: #00ffcc;
-            text-shadow: 0 0 8px #00ffcc;
-            font-size: 1.8rem;
-        }
-    </style>
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 188, 212, 0.4);
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      color: #000000;
+      font-weight: bold;
+    }
+
+    .card-icon {
+      width: 80px;
+      margin-bottom: 10px;
+    }
+
+    .btn-group .btn-custom {
+      font-size: 0.9rem;
+      padding: 8px 15px;
+    }
+
+    .navbar-brand img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      margin-right: 10px;
+      border-radius: 50%;
+      border: 2px solid #00bcd4;
+    }
+
+    .navbar-brand b {
+      color: #00bcd4;
+      text-shadow: 0 0 8px #00bcd4;
+      font-size: 1.8rem;
+    }
+
+    /* ✅ Submit Button Styling: Blue background, black text */
+    button[type="submit"], .btn-submit {
+      background-color: #00bcd4;
+      color: #000;
+      border: 2px solid #00bcd4;
+      font-weight: bold;
+      padding: 10px 20px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    button[type="submit"]:hover, .btn-submit:hover {
+      background-color: #00a3ba;
+      color: #000;
+      box-shadow: 0 0 10px #00bcd4;
+    }
+  </style>
 </head>
 <body>
-    <!--Navbar start-->
-    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
-        <a class="navbar-brand ml-5" href="#">
-            <img src="{{ url_for('static', filename='logo.png') }}" class="rounded-circle">
-            <b class="text-monospace">DARKFRAME</b>
-        </a>
-        <div class="ml-auto d-flex align-items-center mr-5">
-            <a href="{{ url_for('send_email') }}" class="btn btn-custom">Send Email</a>
-            <a href="{{ url_for('logout') }}" class="btn btn-custom">Logout</a>
-        </div>
-    </nav>
-    <!--Navbar end-->
+  <!-- Navbar start -->
+  <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+    <a class="navbar-brand ml-5" href="#">
+      <img src="{{ url_for('static', filename='logo.png') }}" class="rounded-circle" />
+      <b class="text-monospace">SecureWave</b>
+    </a>
+    <div class="ml-auto d-flex align-items-center mr-5">
+      <a href="{{ url_for('send_email') }}" class="btn btn-custom">Send Email</a>
+      <a href="{{ url_for('logout') }}" class="btn btn-custom">Logout</a>
+    </div>
+  </nav>
+  <!-- Navbar end -->
 
-    {% block content %}{% endblock %}
-
-    <!--Body end-->
+  {% block content %}{% endblock %}
 
 </body>
 </html>

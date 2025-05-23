@@ -1,71 +1,80 @@
-{% extends 'audio.html' %}
+v{% extends 'audio.html' %}
 {% block title %} DARKFRAME | Audio-Encode {% endblock %}
 {% block content %}
-   <style>
+<style>
     html, body {
         height: 100%;
         margin: 0;
         padding: 0;
-        background-color: #121212;
+        background-color: #f5f5dc; /* Beige background */
+        color: #000;
     }
 
     .full-height-container {
         height: 80vh;
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Center content vertically */
+        justify-content: center;
         align-items: center;
         background: rgba(0, 255, 255, 0.05);
         border-radius: 15px;
-        box-shadow: 0 0 20px rgba(0, 255, 204, 0.15);
-        color: #e0e0e0;
+        box-shadow: 0 0 20px rgba(0, 188, 212, 0.2);
         padding: 1.5rem;
         overflow: hidden;
+        text-shadow: 0 0 2px #00bcd4;
     }
 
     .card {
-        background-color: #1e1e1e !important;
-        border: 1px solid #2c2c2c;
-        color: #f0f0f0;
+        background-color: #ffffff !important;
+        border: 1px solid #999;
+        color: #000;
         width: 100%;
         max-width: 800px;
         overflow-y: auto;
         padding: 1rem;
         border-radius: 10px;
+        text-shadow: 0 0 1px #00bcd4;
     }
 
     .card-body {
-        background: #2a2a2a;
-        color: #f0f0f0;
+        background: #fdfdfd;
+        color: #000;
         border-radius: 10px;
         padding: 10px;
+        text-shadow: 0 0 1px #00bcd4;
     }
 
     h1, h5 {
-        color: #00ffc8;
+        color: #000;
+        text-shadow: 0 0 3px #00bcd4;
     }
 
     p {
-        color: #cccccc;
+        color: #000;
+        text-shadow: 0 0 1px #00bcd4;
     }
 
     .btn-primary {
-        background-color: #00ffcc;
+        background-color: #00bcd4;
         border: none;
+        color: #000;
+        font-weight: bold;
     }
 
     .btn-primary:hover {
-        background-color: #00cc99;
+        background-color: #0097a7;
+        box-shadow: 0 0 10px #00bcd4;
     }
 
     .btn-dark {
-        background-color: #333;
+        background-color: #ddd;
         border: none;
-        color: #fff;
+        color: #000;
+        font-weight: bold;
     }
 
     .btn-dark:hover {
-        background-color: #555;
+        background-color: #ccc;
     }
 
     audio {
@@ -79,47 +88,46 @@
     }
 </style>
 
-
-    <div class="container mx-5 my-5 p-4">
-        <h1>Encode Result</h1>
-        <div class="card">
-            <div class="container-fluid">
-                {% if file %}
-                    <h5 class="my-2">Your Audio:</h5>
-                    <audio controls class="mb-2">
-                        <source src="static/{{ file.filename }}" type="audio/wav">
-                    </audio>
-                {% else %}
-                    <p>No Audio selected</p>
-                    <br>
-                {% endif %}
-                <hr>
-                {% if message %}
-                    <h5 class="my-2">Your Message:</h5>
-                    <div class="card mb-2">
-                        <div class="card-body">
-                            {{ message }}
-                        </div>
+<div class="container mx-5 my-5 p-4">
+    <h1>Encode Result</h1>
+    <div class="card">
+        <div class="container-fluid">
+            {% if file %}
+                <h5 class="my-2">Your Audio:</h5>
+                <audio controls class="mb-2">
+                    <source src="static/{{ file.filename }}" type="audio/wav">
+                </audio>
+            {% else %}
+                <p>No Audio selected</p>
+                <br>
+            {% endif %}
+            <hr>
+            {% if message %}
+                <h5 class="my-2">Your Message:</h5>
+                <div class="card mb-2">
+                    <div class="card-body">
+                        {{ message }}
                     </div>
-                {% else %}
-                    <p>No message recorded.</p>
-                {% endif %}
-                <hr>
-                {% if audio_encryption %}
-                    <h5 class="my-2">Encrypted Audio:</h5>
-                    <div class="col">
-                        <a class="btn btn-dark btn-sm row" href="static/song_embedded.wav" download>Download</a>
-                    </div>
-                    <br>
-                {% else %}
-                    <p>No encrypted audio available.</p>
-                    <br>
-                {% endif %}
-                <hr>
-                <div>
-                    <a class="btn btn-primary my-2" href="/audio/decode">Done</a>
                 </div>
+            {% else %}
+                <p>No message recorded.</p>
+            {% endif %}
+            <hr>
+            {% if audio_encryption %}
+                <h5 class="my-2">Encrypted Audio:</h5>
+                <div class="col">
+                    <a class="btn btn-dark btn-sm row" href="static/song_embedded.wav" download>Download</a>
+                </div>
+                <br>
+            {% else %}
+                <p>No encrypted audio available.</p>
+                <br>
+            {% endif %}
+            <hr>
+            <div>
+                <a class="btn btn-primary my-2" href="/audio/decode">Done</a>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}

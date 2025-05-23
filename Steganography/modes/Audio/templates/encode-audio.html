@@ -3,43 +3,52 @@
 {% block content %}
     <style>
         .encode-container {
-            background: rgba(0, 255, 255, 0.09);
+            background-color: #f5f5dc; /* Beige */
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
-            color: #e0e0e0;
+            box-shadow: 0 0 20px rgba(0, 188, 212, 0.2);
+            color: #000;
             padding: 2rem;
             margin: 2rem auto;
             max-width: 960px;
             width: 100%;
+            text-shadow: 0 0 2px #00bcd4;
+        }
+
+        h1, label, textarea, input, p, span {
+            color: #000 !important;
+            text-shadow: 0 0 2px #00bcd4;
         }
 
         .form-control,
         .form-control-file {
-            background-color: #1e1e1e;
+            background-color: #fff;
             border: 1px solid #444;
-            color: #fff;
+            color: #000;
         }
 
         .form-control::placeholder {
-            color: #aaa;
+            color: #555;
         }
 
         label {
-            color: #00ffc8;
             font-weight: 500;
         }
 
         h1 {
-            color: #00ffc8;
+            text-shadow: 0 0 4px #00bcd4, 0 0 6px rgba(0, 188, 212, 0.4);
         }
 
         .btn-primary {
-            background-color: #00ffcc;
+            background-color: #00bcd4;
             border: none;
+            color: #000;
+            font-weight: bold;
         }
 
         .btn-primary:hover {
-            background-color: #00cc99;
+            background-color: #0097a7;
+            box-shadow: 0 0 15px #00bcd4;
+            color: #000;
         }
 
         @media (max-width: 768px) {

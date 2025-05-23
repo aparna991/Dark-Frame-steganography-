@@ -6,135 +6,138 @@
         height: 100%;
         margin: 0;
         padding: 0;
-        background-color: #121212;
+        background-color: #f5f5dc;
+       font-family: "Arial", "Helvetica", sans-serif;
+        color: #00ffcc;
     }
 
     .container-fluid {
         height: 80vh;
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Center content vertically */
+        justify-content: center;
         align-items: center;
         background: rgba(0, 255, 255, 0.05);
         border-radius: 15px;
         box-shadow: 0 0 20px rgba(0, 255, 204, 0.15);
-        color: #e0e0e0;
         padding: 1.5rem;
         overflow: hidden;
+        color: black;
     }
 
     .card {
-        background-color: #1e1e1e !important;
-        border: 1px solid #2c2c2c;
-        color: #f0f0f0;
-        width: 100%;
-        max-width: 800px;
-        overflow-y: auto;
-        padding: 1rem;
-        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+        color: black;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
     }
 
     .card-body {
-        background: #2a2a2a;
-        color: #f0f0f0;
+        background: #ffffff;
         border-radius: 10px;
-        padding: 10px;
+        padding: 15px;
+        color: black;
+        font-family: "Arial", "Helvetica", sans-serif;
     }
 
     h1, h5 {
-        color: #00ffc8;
+        color: #000000;
+        text-shadow: 0 0 5px #00bcd4;
     }
 
     p {
-        color: #cccccc;
+        color: #000000;
     }
 
     .btn-primary {
-        background-color: #00ffcc;
+        background-color: #00bcd4;
         border: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #000;
     }
 
     .btn-primary:hover {
         background-color: #00cc99;
+        color: black;
+        box-shadow: 0 0 10px #00ffcc;
+        transform: scale(1.05);
     }
 
     .btn-dark {
-        background-color: #333;
-        border: none;
-        color: #fff;
+        background-color: transparent;
+        border: 2px solid #00ffcc;
+        color: #00ffcc;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: all 0.3s ease-in-out;
     }
 
     .btn-dark:hover {
-        background-color: #555;
+        background-color: #00ffcc;
+        color: black;
+        box-shadow: 0 0 15px #00ffcc;
+        transform: scale(1.05);
     }
 
-    audio {
-        width: 100%;
+    video {
+        border: 2px solid #00ffcc;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
     }
 
     @media (max-width: 768px) {
-        .full-height-container {
+        .container-fluid {
             padding: 1rem;
         }
     }
 </style>
-    <div class="container mx-5 my-5">
-        <h1>Encode Result</h1>
-        <div class="card bg-light">
-            <div class="container-fluid">
-                <!-- {% for key, value in result.items() %}
-                    {% if value %}
-                        <p> {{ value }}</p>
-                    {% else %}
-                        <p> No message selected </p>
-                    {% endif %}
-                {% endfor %} -->
 
-                {% if file %}
-                    <h5 class="my-2">
-                        Your Video:
-                    </h5>
-                    <video width="320" height="240" controls class="mb-2">
-                        <source src="static/{{ file.filename }}" type="video/mp4">
-                    </video>
-                {% else %}
-                    <p> No Video selected</p>
-                    <br>
-                {% endif %}
-                    <hr>
-                {% if message %}
-                    <h5 class="my-2">
-                        Your Message:
-                    </h5>
-                    <div class="card mb-2">
-                        <div class="card-body">
-                          {{ message }}
-                        </div>
+<div class="container mx-5 my-5">
+    <h1>Encode Result</h1>
+    <div class="card bg-light">
+        <div class="container-fluid">
+            {% if file %}
+                <h5 class="my-2">Your Video:</h5>
+                <video width="320" height="240" controls class="mb-2">
+                    <source src="static/{{ file.filename }}" type="video/mp4">
+                </video>
+            {% else %}
+                <p>No video selected</p><br>
+            {% endif %}
+            <hr>
+            {% if message %}
+                <h5 class="my-2">Your Message:</h5>
+                <div class="card mb-2">
+                    <div class="card-body">
+                        {{ message }}
                     </div>
-                {% else %}
-                    <p>No message recorded.</p>
-                {% endif %}
-                    <hr>
-                {% if encryption %}
-                    <h5 class="my-2">
-                        Encrypted Video:
-                    </h5>
-
-                    <div class="col">
-                        <!-- <img class="row mb-1" src="static/encrypted_video_image.png" style="width:100px; height:100px"/> -->
-                        <a class="btn btn-dark btn-sm row" href="static/enc-video.mp4" download>Download</a>
-                    </div>
-                    <br>
-                {% else %}
-                    <p> No </p>
-                    <br>
-                {% endif %}
-                    <hr>
-                <div>
-                    <a class="btn btn-primary my-2" href="/video/decode">Done</a>
                 </div>
+            {% else %}
+                <p>No message recorded.</p>
+            {% endif %}
+            <hr>
+            {% if encryption %}
+                <h5 class="my-2">Encrypted Video:</h5>
+                <div class="col">
+                    <a class="btn btn-dark btn-sm row" href="static/enc-video.mp4" download>Download</a>
+                </div><br>
+            {% else %}
+                <p>No encrypted output.</p><br>
+            {% endif %}
+            <hr>
+            <div>
+                <a class="btn btn-primary my-2" href="/video/decode">Done</a>
             </div>
         </div>
     </div>
-    
+</div>
+
 {% endblock %}

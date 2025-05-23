@@ -10,27 +10,28 @@
     <style>
         /* 🌑 Dark Background */
         body {
-            background: #0d0d0d;
-            font-family: "Courier New", monospace;
-            color: #00ffcc;
+            background: #f5f5dc; /* Beige background */
+           font-family: "Arial", "Helvetica", sans-serif;
+            color: #000; /* Black text */
+            text-align: center;
         }
 
         /* 🔹 Navbar */
         .custom-navbar {
             background: #1a1a1a;
             padding: 15px;
-            border-bottom: 2px solid #00ffcc;
+            border-bottom: 2px solid #00bcd4; /* Blue border */
         }
 
         .custom-navbar .navbar-brand b {
-            color: #00ffcc;
-            text-shadow: 0 0 8px #00ffcc;
+            color: #00bcd4; /* Blue text */
+            text-shadow: 0 0 8px #00bcd4; /* Blue text-shadow */
         }
 
         .btn-custom {
             background: transparent;
-            color: #00ffcc;
-            border: 2px solid #00ffcc;
+            color: #00bcd4; /* Blue text */
+            border: 2px solid #00bcd4; /* Blue border */
             padding: 10px 20px;
             margin-left: 10px;
             transition: all 0.3s ease-in-out;
@@ -39,25 +40,25 @@
         }
 
         .btn-custom:hover {
-            background: #00ffcc;
-            color: #000;
-            box-shadow: 0 0 15px #00ffcc, 0 0 30px rgba(0, 255, 204, 0.5);
+            background: #00bcd4; /* Blue background on hover */
+            color: #000; /* Black text on hover */
+            box-shadow: 0 0 15px #00bcd4, 0 0 30px rgba(0, 188, 212, 0.5); /* Blue glow */
             transform: scale(1.1);
         }
 
         /* 🔹 Jumbotron */
         .jumbotron {
-            background: rgba(0, 255, 204, 0.1);
+            background: rgba(0, 188, 212, 0.1);
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+            box-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
             text-align: center;
         }
 
         .text-glow {
             font-size: 2rem;
-            color: #00ffcc;
-            text-shadow: 0 0 10px #00ffcc, 0 0 20px rgba(0, 255, 204, 0.8);
+            color: #00bcd4; /* Blue text */
+            text-shadow: 0 0 10px #00bcd4, 0 0 20px rgba(0, 188, 212, 0.8); /* Blue glow */
         }
 
         .lead {
@@ -71,19 +72,19 @@
             border-radius: 15px;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+            box-shadow: 0 0 10px rgba(0, 188, 212, 0.2); /* Blue shadow */
             transition: transform 0.2s ease-in-out;
             margin: 10px;
         }
 
         .card:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+            box-shadow: 0 0 20px rgba(0, 188, 212, 0.5); /* Blue shadow on hover */
         }
 
         .card-title {
             font-size: 1.2rem;
-            color: #00ffcc;
+            color: #00bcd4; /* Blue text */
             font-weight: bold;
         }
 
@@ -103,12 +104,12 @@
             object-fit: contain; /* Ensure aspect ratio */
             margin-right: 10px;
             border-radius: 50%; /* Circular shape */
-            border: 2px solid #00ffcc; /* Neon border effect */
+            border: 2px solid #00bcd4; /* Neon border effect */
         }
 
         .navbar-brand b {
-            color: #00ffcc;
-            text-shadow: 0 0 8px #00ffcc;
+            color: #00bcd4; /* Blue text */
+            text-shadow: 0 0 8px #00bcd4; /* Blue text-shadow */
             font-size: 1.8rem;
         }
     </style>
@@ -118,7 +119,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
         <a class="navbar-brand ml-5" href="#">
             <img src="{{ url_for('static', filename='logo.png') }}" class="rounded-circle">
-            <b class="text-monospace">DARKFRAME</b>
+            <b class="text-monospace">SecureWave</b>
         </a>
         <div class="ml-auto d-flex align-items-center mr-5">
             <a href="{{ url_for('send_email') }}" class="btn btn-custom">Send Email</a>
